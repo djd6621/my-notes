@@ -7,3 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#b1, #b2 {
+  font-size: 48px;
+}
