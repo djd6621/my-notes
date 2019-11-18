@@ -35,39 +35,6 @@
 //
 // export default App;
 
-// import React, {Component} from "react"
-//
-// class App extends Component {
-//   constructor() {
-//     super()
-//     this.state = {
-//       firstName: "",
-//       lastName: ""
-//     }
-//     this.handleChange = this.handleChange.bind(this)
-//   }
-//
-//   handleChange(event) {
-//       const {name, value} = event.target;
-//     this.setState({
-//       [name]: value
-//     })
-//   }
-//
-//   render() {
-//     return (
-//         <div>
-//           <input type="text" name="firstName" placeholder="first name" onChange={this.handleChange}/>
-//           <br/>
-//           <input type="text" name="lastName" placeholder="last name" onChange={this.handleChange}/>
-//           <h1>{this.state.firstName} {this.state.lastName}</h1>
-//         </div>
-//     )
-//   }
-// }
-//
-// export default App
-
 import React, {Component} from "react";
 import Notes from "./Notes";
 
@@ -92,10 +59,12 @@ class App extends Component {
             } else {
                 let newComp;
                 if (prevState.notes.length === 0) {
-                    return {notes: [<Notes/>]}
+                    return {notes: [<Notes key="0"/>]}
                 } else {
                     newComp = prevState.notes.map(comps => comps);
-                    newComp.push(<Notes/>);
+                    const lastNotes = newComp[newComp.length - 1];
+                    const newKey = lastNotes.key + 1;
+                    newComp.push(<Notes key={newKey}/>);
                     return {notes: newComp}
                 }
             }
