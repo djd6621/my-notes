@@ -36,54 +36,17 @@
 // export default App;
 
 import React, {Component} from "react";
-import Notes from "./Notes";
+import NotePage from "./NotePage";
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            notes: []
-        };
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(event) {
-        const {name} = event.target;
-        this.setState(prevState => {
-            if(name === "remove") {
-                if(prevState.notes.length !== 0) {
-                    let newComp = prevState.notes.map(comps => comps);
-                    newComp.pop();
-                    return {notes: newComp}
-                }
-            } else {
-                let newComp;
-                if (prevState.notes.length === 0) {
-                    return {notes: [<Notes key="0"/>]}
-                } else {
-                    newComp = prevState.notes.map(comps => comps);
-                    const lastNotes = newComp[newComp.length - 1];
-                    const newKey = lastNotes.key + 1;
-                    newComp.push(<Notes key={newKey}/>);
-                    return {notes: newComp}
-                }
-            }
-        })
     }
 
     render() {
-        let notesDisplay;
-        if(this.state.notes.length === 0) {
-            notesDisplay = "No Notes have been added"
-        } else {
-            notesDisplay = this.state.notes;
-        }
         return (
             <div>
-                <button id="b1" type="button" name="add" onClick={this.handleChange}>Add Notes</button>
-                <button id="b2" type="button" name="remove" onClick={this.handleChange}>Remove Notes</button>
-                <br/>
-                {notesDisplay}
+                <NotePage />
             </div>
         )
     }

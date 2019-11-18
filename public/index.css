@@ -1,4 +1,8 @@
-#b1, #b2, #b3 {
+body {
+  background-color: lightgoldenrodyellow;
+}
+
+.b {
   font-size: 16px;
 }
 
