@@ -43,12 +43,10 @@ class NotePage extends Component {
     }
 
     handleSubmit(event) {
-        console.log("Setting state for submit.");
         const {id} = event.target;
         this.setState(prevState => {
             const newNotes = prevState.notes.map(notes => {
-                console.log(notes);
-                if(notes.key === id) {
+                if(notes.key == id) {
                     return {
                         key: id,
                         note: notes.note,
@@ -57,7 +55,6 @@ class NotePage extends Component {
                 }
                 return notes
             });
-            console.log(newNotes);
             return {notes: newNotes}
         })
     }
@@ -66,12 +63,8 @@ class NotePage extends Component {
         const {id, value} = event.target;
         this.setState(prevState => {
             const newNotes = prevState.notes.map(notes => {
-                if(notes.key === id) {
-                    return {
-                        key: id,
-                        note: value,
-                        submit: false
-                    }
+                if(notes.key == id) {
+                    notes.note = value;
                 }
                 return notes;
             });
@@ -90,7 +83,6 @@ class NotePage extends Component {
                         if(notesObj.submit === true) {
                             return <li>
                                 <Note key={notesObj.key} text={notesObj.note}/>
-                                {console.log(notesObj)}
                                 <button className="b" type="button" name="remove" id={notesObj.key} onClick={this.addOrRemoveNote}>Remove this note!</button>
                             </li>
                         }
@@ -104,7 +96,6 @@ class NotePage extends Component {
 
         return(
             <div>
-                <h1>My Notes</h1>
                 <button className="b" type="button" name="add" onClick={this.addOrRemoveNote}>Add a note</button>
                 {render}
             </div>

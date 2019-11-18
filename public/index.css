@@ -3,6 +3,20 @@ body {
 }
 
 .b {
-  font-size: 16px;
+  size: 12px;
+  text-align: center;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+}
+ul li {
+  display: inline-list-item;
+}
+
+ul button {
+  display: inline-block;
+  margin: 20px;
 }
 

@@ -46,6 +46,8 @@ class App extends Component {
     render() {
         return (
             <div>
+                <h1>My Notes</h1>
+                <hr/>
                 <NotePage />
             </div>
         )
