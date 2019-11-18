@@ -5,18 +5,5 @@ body {
 .b {
   size: 12px;
   text-align: center;
+  margin: 10px;
 }
-
-ul {
-  display: flex;
-  align-items: center;
-}
-ul li {
-  display: inline-list-item;
-}
-
-ul button {
-  display: inline-block;
-  margin: 20px;
-}
-

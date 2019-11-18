@@ -78,20 +78,20 @@ class NotePage extends Component {
             render = <h3>No Notes have been added</h3>
         } else {
             render =
-                <ul>
+                <div>
                     {this.state.notes.map(notesObj => {
                         if(notesObj.submit === true) {
-                            return <li>
+                            return <div>
                                 <Note key={notesObj.key} text={notesObj.note}/>
-                                <button className="b" type="button" name="remove" id={notesObj.key} onClick={this.addOrRemoveNote}>Remove this note!</button>
-                            </li>
+                                <button className="b" name="remove" id={notesObj.key} onClick={this.addOrRemoveNote}>Remove this note!</button>
+                            </div>
                         }
-                        return <li>
+                        return <div>
                             <input type="text" name="notes" placeholder="Write your notes here!!" id={notesObj.key} onChange={this.handleChange}/>
-                            <button className="b" type="button" id={notesObj.key} onClick={this.handleSubmit}>Enter your notes!</button>
-                        </li>
+                            <button className="b" id={notesObj.key} onClick={this.handleSubmit}>Enter your notes!</button>
+                        </div>
                     })}
-                </ul>
+                </div>
         }
 
         return(
