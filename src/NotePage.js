@@ -35,7 +35,7 @@ class NotePage extends Component {
         } else {
             const{id} = event.target;
             this.setState(prevState => {
-                const newNotes = prevState.notes.filter(notes => notes.key !== id);
+                const newNotes = prevState.notes.filter(notes => notes.key != id);
                 return {notes: newNotes}
             })
         }
@@ -80,22 +80,23 @@ class NotePage extends Component {
             render =
                 <div>
                     {this.state.notes.map(notesObj => {
-                        if(notesObj.submit === true) {
-                            return <div>
-                                <Note key={notesObj.key} text={notesObj.note}/>
-                                <button className="b" name="remove" id={notesObj.key} onClick={this.addOrRemoveNote}>Remove this note!</button>
-                            </div>
-                        }
-                        return <div>
-                            <input type="text" name="notes" placeholder="Write your notes here!!" id={notesObj.key} onChange={this.handleChange}/>
-                            <button className="b" id={notesObj.key} onClick={this.handleSubmit}>Enter your notes!</button>
-                        </div>
+                        return <span className="notes-span">
+                            <Note
+                                key={notesObj.key}
+                                id={notesObj.key}
+                                text={notesObj.note}
+                                submit={notesObj.submit}
+                                addOrRemove={this.addOrRemoveNote}
+                                submitFunc={this.handleSubmit}
+                                inputFunc={this.handleChange}
+                            />
+                        </span>
                     })}
                 </div>
         }
 
         return(
-            <div>
+            <div className="page">
                 <button className="b" type="button" name="add" onClick={this.addOrRemoveNote}>Add a note</button>
                 {render}
             </div>

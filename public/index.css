@@ -5,5 +5,7 @@ body {
 .b {
   size: 12px;
   text-align: center;
-  margin: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  border-style: outset;
 }
