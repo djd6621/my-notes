@@ -1,12 +1,17 @@
 import React, {Component} from "react";
 
+/**
+ * Displays the buttons and texts for a note
+ */
 class Note extends Component {
-
-
     constructor(props) {
         super(props);
     }
 
+    /**
+     * Displays text and buttons in a div.
+     * @returns {*}
+     */
     render() {
         let render;
         if(this.props.submit !== null && this.props.submit) {

@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import Note from "./Note";
 
+/**
+ * NotePage Component holds the state for the Note Component to render
+ */
 class NotePage extends Component {
     constructor(props) {
         super(props);
@@ -12,6 +15,10 @@ class NotePage extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    /**
+     * Handles button for adding and removing notes
+     * @param event
+     */
     addOrRemoveNote(event) {
         const {name} = event.target;
         if(name === "add") {
@@ -42,6 +49,10 @@ class NotePage extends Component {
 
     }
 
+    /**
+     * Handles displaying note text when submit button clicked
+     * @param event
+     */
     handleSubmit(event) {
         const {id} = event.target;
         this.setState(prevState => {
@@ -59,6 +70,10 @@ class NotePage extends Component {
         })
     }
 
+    /**
+     * Updates the state when text is entered for a state
+     * @param event
+     */
     handleChange(event) {
         const {id, value} = event.target;
         this.setState(prevState => {
@@ -72,6 +87,10 @@ class NotePage extends Component {
         })
     }
 
+    /**
+     * Renders h3 or a list of note components
+     * @returns {*}
+     */
     render() {
         let render;
         if(this.state.notes.length === 0) {
